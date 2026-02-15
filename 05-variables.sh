@@ -7,3 +7,5 @@ echo "user name is $USER_NAME"
 
 echo "Please enter your password::"
 read -s PASSWORD # -s hide the password or whatever you enter that doesnt visible on screen
+
+echo "your password is $PASSWORD" #just for understanding...dont print password anywhere
