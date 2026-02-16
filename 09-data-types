@@ -5,3 +5,8 @@ b=twenty
 sum=$(($a+$b))
 
 echo "sum is: $sum"
+
+#array
+
+FRUITS=("Apple" "Banana" "Pomo")
+echo "fruits are: ${FRUITS[@]}"
