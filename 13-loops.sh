@@ -20,11 +20,9 @@ else
 echo "$2 success" | tee -a $LOGS_FILE 
 fi
 }
-dnf install nginx -y &>> $LOGS_FILE
-VALIDATE $? "installing nginx"
 
-dnf install mysql -y &>> $LOGS_FILE
-VALIDATE $? "install sql"
- 
-dnf install nodejs -y &>> $LOGS_FILE
-VALIDATE $? "install nodejs"
+for package in $@
+do 
+  dnf install $package -y &>> $LOGS_FILE
+  VALIDATE &? "$package installation"
+done  
