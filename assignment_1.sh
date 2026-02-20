@@ -9,6 +9,6 @@
 
 # Check if an argument is provided
 if [ "$#" -ne 1 ]; then #$# = number of arguments passed to script.
-    echo "Usage: $0 <filename_or_path>"
+    echo "Usage: $0 count-words.txt"
     exit 1
 fi
