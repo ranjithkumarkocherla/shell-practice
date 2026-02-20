@@ -19,3 +19,12 @@ if [ ! -e "$FILE_PATH" ]; then
     echo "The file or path '$FILE_PATH' is not present."
     exit 1
 fi
+
+# 2. If it exists, check if it is a directory
+if [ -d "$FILE_PATH" ]; then
+    echo "'$FILE_PATH' is a directory. Files inside:"
+    # List all files inside the directory
+    ls -A "$FILE_PATH"
+else
+    # 3. If it is a regular file, check readability and writability
+    echo "'$FILE_PATH' exists and is a regular file."
