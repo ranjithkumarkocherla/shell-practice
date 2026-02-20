@@ -8,7 +8,7 @@
 #Extension: If the argument is a directory, list all files inside it.
 
 # Check if an argument is provided
-if [ "$#" -ne 1 ]; then #$# = number of arguments passed to script.
+if [ "$#" -ne 0 ]; then #$# = number of arguments passed to script.
     echo "Usage: $0 count-words.txt"
     exit 1
 fi
