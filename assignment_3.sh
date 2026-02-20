@@ -2,8 +2,8 @@
 #!/bin/bash
 
 # Define the strings
-OLD_STRING="FOO" #FOO
-NEW_STRING="BAR" #BAR
+OLD_STRING="BAR" #FOO
+NEW_STRING="FOO" #BAR
 FILE_PATTERN="*.conf"
 
 # Define the starting directory (current directory in this case)
@@ -18,5 +18,5 @@ echo "Files to update: $FILES_TO_CHANGE"
 
 # Optional: Loop through them to update
 for file in $FILES_TO_CHANGE; do
-   sed -i "s/$OLD_STRING/"FOO"/g" "$file"
+   sed -i "s/$OLD_STRING/"BAR"/g" "$file"
  done
