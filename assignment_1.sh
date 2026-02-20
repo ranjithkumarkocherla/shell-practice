@@ -41,4 +41,3 @@ fi
     else
         echo "It is not writable."
     fi
-fi
