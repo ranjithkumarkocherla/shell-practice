@@ -28,3 +28,4 @@ if [ -d "$FILE_PATH" ]; then
 else
     # 3. If it is a regular file, check readability and writability
     echo "'$FILE_PATH' exists and is a regular file."
+fi    
