@@ -12,3 +12,10 @@ if [ "$#" -ne 1 ]; then #$# = number of arguments passed to script.
     echo "Usage: $0 <filename_or_path>"
     exit 1
 fi
+FILE_PATH="$1"
+
+# 1. Check if the file/path exists
+if [ ! -e "$FILE_PATH" ]; then
+    echo "The file or path '$FILE_PATH' is not present."
+    exit 1
+fi
