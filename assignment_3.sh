@@ -18,5 +18,5 @@ echo "Files to update: $FILES_TO_CHANGE"
 
 # Optional: Loop through them to update
 for file in $FILES_TO_CHANGE; do
-   sed -i "s/$OLD_STRING/"BAR"/g" "$file"
+   sed -i "s/$OLD_STRING/"FOO"/g" "$file"
  done
