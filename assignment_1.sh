@@ -29,3 +29,9 @@ else
     # 3. If it is a regular file, check readability and writability
     echo "'$FILE_PATH' exists and is a regular file."
 fi    
+     # Check readability
+    if [ -r "$FILE_PATH" ]; then
+        echo "It is readable."
+    else
+        echo "It is not readable."
+    fi
