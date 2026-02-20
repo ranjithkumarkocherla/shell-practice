@@ -1,22 +1,56 @@
 #!/bin/bash
-#!/bin/bash
 
-# Define the strings
-OLD_STRING="BAR" #FOO
-NEW_STRING="FOO" #BAR
-FILE_PATTERN="*.conf"
+# -----------------------------
+# Script: assignment_3.sh
+# Purpose: Replace FOO with BAR
+# In all .conf files recursively
+# -----------------------------
 
-# Define the starting directory (current directory in this case)
-START_DIR="."
+# Check argument
+if [ "$#" -ne 1 ]; then
+    echo "Usage: $0 <directory_path>"
+    exit 1
+fi
 
-#echo "Replacing all occurrences of '$OLD_STRING' with '$NEW_STRING' in all  $FILE_PATTERN files under $START_DIR"
+DIRECTORY="$1"
+OLD_STRING="FOO"
+NEW_STRING="BAR"
 
-# Use find to locate files and sed to replace the string in-place
-FILES_TO_CHANGE=$(find "$START_DIR" -name "$FILE_PATTERN" -type f -exec sed -i "s/$OLD_STRING/$NEW_STRING/g" {} +)
-echo "Files to update: $FILES_TO_CHANGE"
-#echo "Replacement complete."
+# Check if directory exists
+if [ ! -d "$DIRECTORY" ]; then
+    echo "Error: Directory '$DIRECTORY' does not exist."
+    exit 1
+fi
 
-# Optional: Loop through them to update
-for file in $FILES_TO_CHANGE; do
-   sed -i "s/$OLD_STRING/FOO/g" "$file"
- done
+echo "----------------------------------------"
+echo "Replacing '$OLD_STRING' with '$NEW_STRING'"
+echo "Target Directory: $DIRECTORY"
+echo "----------------------------------------"
+
+# Find files that contain OLD_STRING and replace
+MODIFIED_FILES=$(find "$DIRECTORY" -type f -name "*.conf" -exec grep -l "$OLD_STRING" {} +)
+
+if [ -z "$MODIFIED_FILES" ]; then
+    echo "No files found containing '$OLD_STRING'."
+    exit 0
+fi
+
+echo "Modified Files:"
+
+for file in $MODIFIED_FILES
+do
+    echo " -> $file"
+    sed -i.bak "s/$OLD_STRING/$NEW_STRING/g" "$file"
+done
+
+#  Check exit status
+if [ $? -eq 0 ]; then
+    echo "----------------------------------------"
+    echo "Replacement completed successfully."
+    echo "Backup files created with .bak extension."
+else
+    echo "Error occurred during replacement."
+    exit 1
+fi
+
+echo "----------------------------------------"
