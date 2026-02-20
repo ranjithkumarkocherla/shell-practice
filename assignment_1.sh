@@ -35,3 +35,10 @@ fi
     else
         echo "It is not readable."
     fi
+    # Check writability
+    if [ -w "$FILE_PATH" ]; then
+        echo "It is writable."
+    else
+        echo "It is not writable."
+    fi
+fi
