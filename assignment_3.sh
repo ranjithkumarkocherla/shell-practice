@@ -2,8 +2,8 @@
 #!/bin/bash
 
 # Define the strings
-OLD_STRING="BAR" #FOO
-NEW_STRING="FOO" #BAR
+OLD_STRING="FOO" #FOO
+NEW_STRING="BAR" #BAR
 FILE_PATTERN="*.conf"
 
 # Define the starting directory (current directory in this case)
