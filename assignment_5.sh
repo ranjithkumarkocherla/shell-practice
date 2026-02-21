@@ -3,7 +3,7 @@
 #Task_5. Largest Number from Arguments
 #Write a script that finds the largest number from a list of numbers provided as command-line arguments.
 if [ "$#" -lt 1 ]; then
-    echo "Please enter the numbers: $1 $2 $3 $4"
+    echo "Please enter the numbers: $0 <num1> <num2> <num3> "
     exit 1
 fi
 
