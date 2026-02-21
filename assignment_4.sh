@@ -6,7 +6,7 @@
 #Save those lines into a separate output file.Include a header line in the output.
 
 
-INPUT_FILE="data.csv"
+INPUT_FILE="joindevops.log"
 OUTPUT_FILE="error_lines.csv"
 HEADER_TEXT="Timestamp,LogLevel,Message,Details" # Replace with your actual header
 
